@@ -5,13 +5,13 @@ if (isset($_POST['password'])) {
     $password = $_POST['password'];
     if ($password === 'Bailey1967!!') { // Replace 'your_password_here' with your actual password
         // Connect to database
-        $conn = mysqli_connect('3.229.108.115:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
+        $conn = mysqli_connect('3.229.108.115:3306', 'projects', 'Bailey1967!!', 'admin_projects');
         // Retrieve data from database
         $sql = "SELECT * FROM project_manager;";
         $result = mysqli_query($conn, $sql);
     }
-} ?>
-
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +69,7 @@ if (isset($_POST['password'])) {
                     if (isset($_POST['password'])) {
                         // Check if password is correct
                         $password = $_POST['password'];
-                        if ($password === 'Bailey1967!!') { // Replace 'your_password_here' with your actual password
+                        if ($password === '******') { // Replace 'your_password_here' with your actual password
                             $_SESSION['password'] = $password; // Set password in session variable
                         } else {
                             $error = true;
@@ -77,25 +77,25 @@ if (isset($_POST['password'])) {
                     }
 
                     // Check if password is in session variable
-                    if (!isset($_SESSION['password']) || $_SESSION['password'] !== 'Bailey1967!!') {
+                    if (!isset($_SESSION['password']) || $_SESSION['password'] !== '******') {
                         // Display password form if not in session or if session is incorrect
                         echo '  <div class="password_form">
-                <form method="post" action="">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
-            ';
+            <form method="post" action="">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        ';
                         // Stop further execution of code until correct password is entered
                         exit();
                     }
 
                     // Connect to database using prepared statements
-                    $conn = mysqli_connect('3.229.108.115:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
+                    $conn = mysqli_connect('3.229.108.115:3306', 'projects', '******', 'admin_projects');
 
                     // Prepare and execute the statement to retrieve data from database
-                    $stmt = mysqli_prepare($conn, "SELECT projectname, contact_name, contact_email, contact_phone, project_type) FROM project_manager");
+                    $stmt = mysqli_prepare($conn, "SELECT projectname, contact_name, contact_email, contact_phone, project_type FROM project_manager");
                     mysqli_stmt_execute($stmt);
 
                     // Bind the results to variables
@@ -103,37 +103,42 @@ if (isset($_POST['password'])) {
 
                     // Generate HTML table
                     echo '
-        <table class="project-summary">
-            <h2 class="h1 text-center">Project List</h2>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Contact</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Project Type</th>
-                </tr>
-            </thead>
-            <tbody>
-    ';
+    <table class="project-summary">
+        <h2 class="h1 text-center">Project List</h2>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Project Type</th>
+            </tr>
+        </thead>
+        <tbody>
+';
 
                     // Fetch the rows and display them in the table
                     while (mysqli_stmt_fetch($stmt)) {
                         echo '
-            <tr>
-                <td>' . htmlspecialchars($name) . '</td>
-                <td>' . htmlspecialchars($contact) . '</td>
-                <td>' . htmlspecialchars($email) . '</td>
-                <td>' . htmlspecialchars($phone) . '</td>
-                <td>' . htmlspecialchars($project_type) . '</td>
-            </tr>
-        ';
+        <tr>
+            <td>' . htmlspecialchars($name) . '</td>
+            <td>' . htmlspecialchars($contact) . '</td>
+            <td>' . htmlspecialchars($email) . '</td>
+            <td>' . htmlspecialchars($phone) . '</td>
+            <td>' . htmlspecialchars($project_type) . '</td>
+        </tr>
+    ';
                     }
 
+                    // Close the prepared statement and the database connection
+                    mysqli_stmt_close($stmt);
+                    mysqli_close($conn);
+
                     echo '
-        </tbody>
-    </table>
+    </tbody>
+</table>
 ';
+
                     ?>
 
             </div>

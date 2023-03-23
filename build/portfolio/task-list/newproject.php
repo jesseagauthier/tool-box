@@ -1,6 +1,6 @@
 <?php
 // database connection code
-$con = mysqli_connect('3.229.108.115:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
+$con = mysqli_connect('3.229.108.115:3306', 'projects', 'Bailey1967!!', 'admin_projects');
 
 // Check connection
 if (mysqli_connect_errno()) {
