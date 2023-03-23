@@ -48,8 +48,8 @@ if (isset($_POST['password'])) {
                     <!-- Project Type -->
                     <label for="type">Project Type</label>
                     <select name="project_type" id="type" required>
-                        <option value="web">Web Development</option>
-                        <option value="design">Web Design</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Design">Design</option>
                         <option value="WordPress">WordPress</option>
                         <option value="UI">UI</option>
                     </select>
