@@ -66,6 +66,7 @@ if (isset($_POST['password'])) {
 
             <div><?php
                     session_start();
+
                     // Check if password is submitted
                     if (isset($_POST['password'])) {
                         // Check if password is correct
@@ -81,19 +82,23 @@ if (isset($_POST['password'])) {
                     if (!isset($_SESSION['password']) || $_SESSION['password'] !== '******') {
                         // Display password form if not in session or if session is incorrect
                         echo '  <div class="password_form">
-            <form method="post" action="">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-        ';
+        <form method="post" action="">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    ';
                         // Stop further execution of code until correct password is entered
                         exit();
                     }
 
                     // Connect to database using prepared statements
                     $conn = mysqli_connect('3.229.108.115:3306', 'projects', 'Bailey1994##', 'admin_projects');
+                    if (!$conn) {
+                        // Display error message and stop further execution of code
+                        die("Failed to connect to MySQL: " . mysqli_connect_error());
+                    }
 
                     // Prepare and execute the statement to retrieve data from database
                     $stmt = mysqli_prepare($conn, "SELECT projectname, contact_name, contact_email, contact_phone, project_type FROM project_manager");
@@ -139,6 +144,7 @@ if (isset($_POST['password'])) {
     </tbody>
 </table>
 ';
+
 
                     ?>
 
