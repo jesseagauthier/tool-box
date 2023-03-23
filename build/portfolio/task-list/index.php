@@ -3,9 +3,9 @@
 if (isset($_POST['password'])) {
     // Check if password is correct
     $password = $_POST['password'];
-    if ($password === 'Bailey1967!!') { // Replace 'your_password_here' with your actual password
+    if ($password === 'Bailey1994##') { // Replace 'your_password_here' with your actual password
         // Connect to database
-        $conn = mysqli_connect('3.229.108.115:3306', 'projects', 'Bailey1967!!', 'admin_projects');
+        $conn = mysqli_connect('3.229.108.115:3306', 'projects', 'Bailey1994##', 'admin_projects');
         // Retrieve data from database
         $sql = "SELECT * FROM project_manager;";
         $result = mysqli_query($conn, $sql);
@@ -70,7 +70,7 @@ if (isset($_POST['password'])) {
                     if (isset($_POST['password'])) {
                         // Check if password is correct
                         $password = $_POST['password'];
-                        if ($password === 'Bailey1967!!') { // Replace 'your_password_here' with your actual password
+                        if ($password === 'Bailey1994##') { // Replace 'your_password_here' with your actual password
                             $_SESSION['password'] = $password; // Set password in session variable
                         } else {
                             $error = true;
@@ -93,7 +93,7 @@ if (isset($_POST['password'])) {
                     }
 
                     // Connect to database using prepared statements
-                    $conn = mysqli_connect('3.229.108.115:3306', 'projects', '******', 'admin_projects');
+                    $conn = mysqli_connect('3.229.108.115:3306', 'projects', 'Bailey1994##', 'admin_projects');
 
                     // Prepare and execute the statement to retrieve data from database
                     $stmt = mysqli_prepare($conn, "SELECT projectname, contact_name, contact_email, contact_phone, project_type FROM project_manager");
