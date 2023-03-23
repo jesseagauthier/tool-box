@@ -93,7 +93,7 @@ if (isset($_POST['password'])) {
                     }
 
                     // Connect to database using prepared statements
-                    $conn = mysqli_connect('localhost:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
+                    $conn = mysqli_connect('3.229.108.115:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
 
                     // Prepare and execute the statement to retrieve data from database
                     $stmt = mysqli_prepare($conn, "SELECT projectname, contact_name, contact_email, contact_phone, project_type) FROM project_manager");
