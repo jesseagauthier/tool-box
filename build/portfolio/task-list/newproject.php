@@ -32,21 +32,21 @@ if (isset($_POST['Submit'])) {
 	if ($project_exists) {
 		header("Location: index.php?error=duplicate");
 		exit();
-	}
-} else {
-	// database insert SQL code
-	$sql = "INSERT INTO `project_manager` (`projectname`, `contact_name`, `contact_email`, `contact_phone`, `project_type`)
+	} else {
+		// database insert SQL code
+		$sql = "INSERT INTO `project_manager` (`projectname`, `contact_name`, `contact_email`, `contact_phone`, `project_type`)
                 VALUES ('$projectname', '$contact_name', '$contact_email', '$contact_phone', '$project_type')";
 
-	// insert in database
-	$rs = mysqli_query($con, $sql);
+		// insert in database
+		$rs = mysqli_query($con, $sql);
 
-	if ($rs) {
-		header("Location: url(index.php)");
-		exit();
-	} else {
-		header("Location: index.php?error=database");
-		exit();
+		if ($rs) {
+			header("Location: index.php");
+			exit();
+		} else {
+			header("Location: index.php?error=database");
+			exit();
+		}
 	}
 }
 
