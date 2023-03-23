@@ -1,6 +1,6 @@
 <?php
 // Connect to database
-$conn = mysqli_connect('localhost:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
+$conn = mysqli_connect('3.229.108.115:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
 
 // Retrieve project details
 if (isset($_GET['id'])) {

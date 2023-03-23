@@ -5,7 +5,7 @@ if (isset($_POST['password'])) {
     $password = $_POST['password'];
     if ($password === 'Bailey1967!!') { // Replace 'your_password_here' with your actual password
         // Connect to database
-        $conn = mysqli_connect('localhost:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
+        $conn = mysqli_connect('3.229.108.115:3306', 'project_manager', 'Bailey1967!!', 'project_tracker');
 
         // Retrieve data from database
         $sql = "SELECT * FROM project_manager;";
