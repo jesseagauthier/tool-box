@@ -79,7 +79,7 @@ if (isset($_POST['password'])) {
                     }
 
                     // Check if password is in session variable
-                    if (!isset($_SESSION['password']) || $_SESSION['password'] !== '******') {
+                    if (!isset($_SESSION['password']) || $_SESSION['password'] !== 'Bailey1994##') {
                         // Display password form if not in session or if session is incorrect
                         echo '  <div class="password_form">
         <form method="post" action="">
