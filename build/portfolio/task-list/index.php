@@ -69,7 +69,7 @@ if (isset($_POST['password'])) {
                     if (isset($_POST['password'])) {
                         // Check if password is correct
                         $password = $_POST['password'];
-                        if ($password === '******') { // Replace 'your_password_here' with your actual password
+                        if ($password === 'Bailey1967!!') { // Replace 'your_password_here' with your actual password
                             $_SESSION['password'] = $password; // Set password in session variable
                         } else {
                             $error = true;
