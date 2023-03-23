@@ -63,6 +63,7 @@ if (isset($_POST['password'])) {
                 </form>
             </div>
 
+
             <div><?php
                     session_start();
                     // Check if password is submitted
